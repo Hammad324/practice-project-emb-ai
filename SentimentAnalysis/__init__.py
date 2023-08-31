@@ -1,1 +1,1 @@
-from SentimentAnalysis import sentiment_analysis
+from . import sentiment_analysis

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from SentimentAnalysis.sentiment_analysis import sentiment_analyzer
 
-app = Flask("Sentiment Analyzer")
+app = Flask('Sentiment Analyzer')
 
 @app.route("/sentimentAnalyzer")
 def sent_analyzer():
@@ -10,7 +10,7 @@ def sent_analyzer():
     label = response['label']
     score = response['score']
     if label is None:
-        return "Invalid input, Please try again."
+        return "Invalid input! Try again."
     else:
         return "The given text has been identified as {} with a score of {}.".format(label.split('_')[1], score)
 
@@ -19,4 +19,4 @@ def render_index_page():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(debug=True, host = '0.0.0.0', port=5001)
